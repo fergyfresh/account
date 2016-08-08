@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :time_records
   resources :records
  #root 'records#index'
