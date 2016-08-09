@@ -98,6 +98,8 @@ GEM
     pkg-config (1.1.7)
     puma (2.11.1)
       rack (>= 1.1, < 2.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -191,6 +193,7 @@ DEPENDENCIES
   jquery-rails
   pg (= 0.17.1)
   puma (= 2.11.1)
+  pundit
   rails (= 4.2.6)
   rails_12factor (= 0.0.2)
   react-rails (~> 1.0)
