@@ -24,6 +24,7 @@ class RecordsController < ApplicationController
 
   def destroy
     @record = Record.find(params[:id])
+    authorize @record
     @record.destroy
     head :no_content
   end
