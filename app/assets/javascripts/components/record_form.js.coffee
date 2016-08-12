@@ -13,7 +13,7 @@
 
   handleSubmit: (e) ->
     e.preventDefault()
-    $.post '', { record: @state }, (data) =>
+    $.post '/records/', { record: @state }, (data) =>
       @props.handleNewRecord data
       @setState @getInitialState()
     , 'JSON'
@@ -25,7 +25,7 @@
       React.DOM.div
         className: 'form-group'
         React.DOM.input
-          type: 'text'
+          type: 'date'
           className: 'form-control'
           placeholder: 'Date'
           name: 'date'
@@ -43,7 +43,7 @@
       React.DOM.div
         className: 'form-group'
         React.DOM.input
-          type: 'number'
+          type: 'float'
           className: 'form-control'
           placeholder: 'Amount'
           name: 'amount'
