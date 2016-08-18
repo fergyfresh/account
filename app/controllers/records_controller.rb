@@ -1,10 +1,10 @@
 class RecordsController < ApplicationController
   def index
-    @records = Record.all
+    @records = policy_scope(Record)
   end
 
   def create
-    @record = Record.new(record_params)
+    @record = current_user.records.build(record_params)
 
     if @record.save
       render json: @record
