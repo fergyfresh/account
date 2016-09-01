@@ -3,7 +3,7 @@ this.BigCalendar = React.createClass({
   render(){
     return (
       <BigCalendar
-        events={@props.data}
+        events={this.props.data}
         defaultDate={new Date()}
       />
     )
