@@ -37,7 +37,7 @@
       React.DOM.div
         className: 'row'
         React.createElement AmountBox, type: 'success', amount: @expenses(), text: 'Expenses'
-        React.createElement AmountBox, type: 'info', amount: @hours(), text: 'Hours'
+        React.createElement HourBox, type: 'info', amount: @hours(), text: 'Hours'
       React.createElement RecordForm, handleNewRecord: @addRecord
       React.DOM.hr null
       React.DOM.table
