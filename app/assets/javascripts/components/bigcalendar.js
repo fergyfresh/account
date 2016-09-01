@@ -1,5 +1,5 @@
 
-let BigCalendar = React.createClass({
+this.BigCalendar = React.createClass({
   render(){
     return (
       <BigCalendar
@@ -9,5 +9,3 @@ let BigCalendar = React.createClass({
     )
   }
 })
-
-export default BigCalendar;
