@@ -53,7 +53,7 @@
       React.DOM.td null,
         React.DOM.input
           className: 'form-control'
-          type: 'text'
+          type: 'date'
           defaultValue: @props.record.date
           ref: 'date'
       React.DOM.td null,
