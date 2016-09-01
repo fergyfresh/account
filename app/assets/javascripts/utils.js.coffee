@@ -1,2 +1,5 @@
-  @amountFormat = (amount) ->
-    '$ ' + Number(amount).toLocaleString()
+@amountFormat = (amount) ->
+  '$ ' + Number(amount).toLocaleString()
+
+@hourFormat = (amount) ->
+  Number(amount).toLocaleString()
