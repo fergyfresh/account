@@ -1,5 +1,11 @@
 @amountFormat = (amount) ->
-  '$ ' + Number(amount).toLocaleString()
+  '$ ' + amount.toFixed(2)
 
 @hourFormat = (amount) ->
-  Number(amount).toLocaleString()
+  amount.toFixed(1)
+
+@totalFormat = (amount, isHours) ->
+  if isHours
+    @hourFormat(amount)
+  else
+    @amountFormat(amount)

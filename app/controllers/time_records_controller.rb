@@ -1,2 +1,0 @@
-class TimeRecordsController < ApplicationController
-end
