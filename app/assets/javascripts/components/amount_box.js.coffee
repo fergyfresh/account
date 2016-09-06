@@ -9,4 +9,7 @@
           @props.text
         React.DOM.div
           className: 'panel-body'
-          amountFormat(@props.amount)
+          if @props.isHours
+            hourFormat(@props.amount)
+          else
+            amountFormat(@props.amount)
