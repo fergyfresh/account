@@ -6,13 +6,16 @@
     records: []
 
   expenses: ->
-    expenses = @state.records.filter (val) -> val.amount >= 0
+    expenses = @state.records.filter (val) -> !val.isHours
     expenses.reduce ((prev, curr) ->
       prev + parseFloat(curr.amount)
     ), 0
 
   hours: ->
-    debits = 0
+    hours = @state.records.filter (val) -> val.isHours
+    hours.reduce ((prev, curr) ->
+      prev + parseFloat(curr.amount)
+    ), 0
 
   addRecord: (record) ->
     records = React.addons.update(@state.records, { $push: [record] })
