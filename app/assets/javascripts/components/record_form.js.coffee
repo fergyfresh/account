@@ -3,6 +3,7 @@
     title: ''
     date: ''
     amount: ''
+    isHours: true
 
   valid: ->
     @state.title && @state.date && @state.amount
@@ -49,6 +50,20 @@
           name: 'amount'
           value: @state.amount
           onChange: @handleChange
+      React.DOM.div
+        className: 'form-group'
+        React.DOM.input
+          type: 'radio'
+          name: 'isHours'
+          value: true
+          onChange: @handleChange      
+        ' Hours '
+        React.DOM.input
+          type: 'radio'
+          name: 'isHours'
+          value: false
+          onChange: @handleChange             
+        'Expense '
       React.DOM.button
         type: 'submit'
         className: 'btn btn-primary'
