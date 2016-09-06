@@ -6,7 +6,7 @@
     records: []
 
   expenses: ->
-    expenses = @state.records.filter (val) -> val.isHours == false
+    expenses = @state.records.filter (val) -> !val.isHours
     expenses.reduce ((prev, curr) ->
       prev + parseFloat(curr.amount)
     ), 0
