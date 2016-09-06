@@ -6,7 +6,7 @@
     isHours: true
 
   valid: ->
-    @state.title && @state.date && @state.amount
+    @state.title && @state.date && @state.amount && state.isHours
 
   handleChange: (e) ->
     name = e.target.name
