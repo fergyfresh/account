@@ -57,13 +57,13 @@
           name: 'isHours'
           value: true
           onChange: @handleChange      
-          ' Hours '
+        ' Hours '
         React.DOM.input
           type: 'radio'
           name: 'isHours'
           value: false
           onChange: @handleChange             
-          ' Expense '
+        ' Expense '
       React.DOM.button
         type: 'submit'
         className: 'btn btn-primary'
