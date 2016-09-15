@@ -39,7 +39,14 @@
         className: 'btn btn-default'
         onClick: @handleToggle
         'Edit'
-          
+
+  renderApprove: ->
+    if true == true
+      React.DOM.a
+        className: 'btn btn-default'
+        onClick: 
+        'Approve'
+        
   renderDelete: ->
     if true == true
       React.DOM.a
@@ -55,6 +62,7 @@
       React.DOM.td null, @props.record.name
       React.DOM.td null,
         @renderEdit()
+        @renderApprove()
         @renderDelete()
 
   recordForm: ->
