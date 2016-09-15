@@ -38,7 +38,7 @@
       React.DOM.td null, @props.record.date
       React.DOM.td null, @props.record.title
       React.DOM.td null, totalFormat(@props.record.amount, @props.record.isHours)
-      React.DOM.td null, @props.record.user_id
+      React.DOM.td null, @props.record.name
       React.DOM.td null,
         React.DOM.a
           className: 'btn btn-default'
@@ -69,7 +69,7 @@
           type: 'float'
           defaultValue: @props.record.amount
           ref: 'amount'
-      React.DOM.td null, @props.record.user_id
+      React.DOM.td null, @props.record.name
       React.DOM.td null,
         React.DOM.a
           className: 'btn btn-default'

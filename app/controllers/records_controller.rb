@@ -5,7 +5,7 @@ class RecordsController < ApplicationController
 
   def create
     @record = current_user.records.build(record_params)
-
+    @record.name = current_user.email
     if @record.save
       render json: @record
     else
