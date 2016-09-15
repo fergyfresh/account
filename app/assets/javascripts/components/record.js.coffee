@@ -41,11 +41,10 @@
         'Edit'
           
   renderDelete: ->
-    if false == true
-      React.DOM.a
-        className: 'btn btn-danger'
-        onClick: @handleDelete
-        'Delete'
+    React.DOM.a
+      className: 'btn btn-danger'
+      onClick: @handleDelete
+      'Delete'
           
   recordRow: ->
     React.DOM.tr null,
