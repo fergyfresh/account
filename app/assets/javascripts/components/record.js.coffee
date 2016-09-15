@@ -33,6 +33,20 @@
         @setState edit: false
         @props.handleEditRecord @props.record, data
 
+  renderEdit: ->
+    if true
+      React.DOM.a
+          className: 'btn btn-default'
+          onClick: @handleToggle
+          'Edit'
+          
+  renderDelete: ->
+    if false
+      React.DOM.a
+          className: 'btn btn-danger'
+          onClick: @handleDelete
+          'Delete'
+          
   recordRow: ->
     React.DOM.tr null,
       React.DOM.td null, @props.record.date
@@ -40,14 +54,8 @@
       React.DOM.td null, totalFormat(@props.record.amount, @props.record.isHours)
       React.DOM.td null, @props.record.name
       React.DOM.td null,
-        React.DOM.a
-          className: 'btn btn-default'
-          onClick: @handleToggle
-          'Edit'
-        React.DOM.a
-          className: 'btn btn-danger'
-          onClick: @handleDelete
-          'Delete'
+        @renderEdit
+        @renderDelete
 
   recordForm: ->
     React.DOM.tr null,
