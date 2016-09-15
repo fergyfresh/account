@@ -36,16 +36,16 @@
   renderEdit: ->
     if true
       React.DOM.a
-          className: 'btn btn-default'
-          onClick: @handleToggle
-          'Edit'
+        className: 'btn btn-default'
+        onClick: @handleToggle
+        'Edit'
           
   renderDelete: ->
     if false
       React.DOM.a
-          className: 'btn btn-danger'
-          onClick: @handleDelete
-          'Delete'
+        className: 'btn btn-danger'
+        onClick: @handleDelete
+        'Delete'
           
   recordRow: ->
     React.DOM.tr null,
