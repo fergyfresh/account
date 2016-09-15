@@ -71,12 +71,10 @@
           ref: 'amount'
       React.DOM.td null, @props.record.name
       React.DOM.td null,
-        if True
           React.DOM.a
             className: 'btn btn-default'
             onClick: @handleEdit
             'Update'
-        if False
           React.DOM.a
             className: 'btn btn-danger'
             onClick: @handleToggle
