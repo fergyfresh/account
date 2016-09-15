@@ -44,7 +44,6 @@
     if true == true
       React.DOM.a
         className: 'btn btn-default'
-        onClick: 
         'Approve'
         
   renderDelete: ->
