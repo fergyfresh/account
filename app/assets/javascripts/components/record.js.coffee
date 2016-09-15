@@ -53,8 +53,8 @@
       React.DOM.td null, totalFormat(@props.record.amount, @props.record.isHours)
       React.DOM.td null, @props.record.name
       React.DOM.td null,
-        @renderEdit
-        @renderDelete
+        @renderEdit()
+        @renderDelete()
 
   recordForm: ->
     React.DOM.tr null,
