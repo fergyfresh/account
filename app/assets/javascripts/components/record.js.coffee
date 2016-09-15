@@ -33,14 +33,14 @@
         @setState edit: false
         @props.handleEditRecord @props.record, data
 
-  renderEdit = ->
+  renderEdit: ->
     if true == true
       React.DOM.a
         className: 'btn btn-default'
         onClick: @handleToggle
         'Edit'
           
-  renderDelete = ->
+  renderDelete: ->
     if false == true
       React.DOM.a
         className: 'btn btn-danger'
