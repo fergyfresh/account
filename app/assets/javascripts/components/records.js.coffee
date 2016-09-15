@@ -50,6 +50,7 @@
             React.DOM.th null, 'Date'
             React.DOM.th null, 'Title'
             React.DOM.th null, 'Amount'
+            React.DOM.th null, 'Employee'
             React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for record in @state.records
