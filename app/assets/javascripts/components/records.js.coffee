@@ -34,7 +34,7 @@
   render: ->
     React.DOM.div
       className: 'records'
-      React.DOM.h2
+      React.DOM.h3
         className: 'title'
         'Records'
       React.DOM.div
