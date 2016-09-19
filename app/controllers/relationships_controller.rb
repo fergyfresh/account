@@ -3,16 +3,16 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:employee_id])
     current_user.hire(@user)
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to action: "index", controller: "users" }
       format.js
     end
   end
 
   def destroy
-    @user = Relationship.find(params[:id]).followed
+    @user = Relationship.find(params[:id]).employee
     current_user.fire(@user)
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to action: "index", controller: "users" }
       format.js
     end
   end

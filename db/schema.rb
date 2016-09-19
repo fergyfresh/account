@@ -33,17 +33,9 @@ ActiveRecord::Schema.define(version: 20160919005012) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "relationships", [nil, nil], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", [nil], name: "index_relationships_on_followed_id"
-  add_index "relationships", [nil], name: "index_relationships_on_follower_id"
-
-  create_table "time_records", force: :cascade do |t|
-    t.string   "title"
-    t.date     "date"
-    t.float    "hours"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "relationships", ["employee_id", "supervisor_id"], name: "index_relationships_on_employee_id_and_supervisor_id", unique: true
+  add_index "relationships", ["employee_id"], name: "index_relationships_on_employee_id"
+  add_index "relationships", ["supervisor_id"], name: "index_relationships_on_supervisor_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

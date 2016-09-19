@@ -1,6 +1,6 @@
 <li>
   <%= link_to user.email, user %>
-
+  <%= render 'roster_form' %>
 
   <% if current_user.admin? %>
     | <%= link_to "delete", user, method: :delete,

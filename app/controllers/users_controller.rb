@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = policy_scope(User).paginate(page: params[:page])
+    @user = current_user
+    @users = User.all.where("id != ?", current_user.id).paginate(page: params[:page])
   end
 end
