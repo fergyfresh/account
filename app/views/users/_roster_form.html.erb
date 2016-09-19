@@ -1,7 +1,7 @@
   <div id="roster_form">
   <% if current_user.rostered?(user) %>
-    <%= render partial 'fire'", locals: { user: user } %>
+    <%= render partial: 'fire'", locals: { user: user } %>
   <% else %>
-    <%= render partial 'hire'", locals: { user: user } %>
+    <%= render partial: 'hire'", locals: { user: user } %>
   <% end %>
   </div>
