@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :time_records
   resources :records
   resources :users
+  resources :relationships,       only: [:create, :destroy]
 
   devise_scope :user do
     authenticated :user do

@@ -1,0 +1,9 @@
+<% unless current_user %>
+  <div id="roster_form">
+  <% if current_user.rostered?(@user) %>
+    <%= render 'fire' %>
+  <% else %>
+    <%= render 'hire' %>
+  <% end %>
+  </div>
+<% end %>
