@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919005012) do
+ActiveRecord::Schema.define(version: 20160920155517) do
 
   create_table "records", force: :cascade do |t|
     t.string   "title"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20160919005012) do
   add_index "relationships", ["employee_id"], name: "index_relationships_on_employee_id"
   add_index "relationships", ["supervisor_id"], name: "index_relationships_on_supervisor_id"
 
+  create_table "time_records", force: :cascade do |t|
+    t.string   "title"
+    t.date     "date"
+    t.float    "hours"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -51,6 +59,8 @@ ActiveRecord::Schema.define(version: 20160919005012) do
     t.boolean  "admin",                  default: false, null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.boolean  "isHours"
+    t.boolean  "supervisor",             default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
