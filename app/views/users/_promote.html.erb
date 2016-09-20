@@ -1,4 +1,4 @@
-<%= form_for(current_user), url: {action: "promote"},  do |f| %>
+<%= form_for(current_user), url: {action: "promote"}  do |f| %>
   <div><%= hidden_field_tag :employee_id, user.id %></div>
   <%= f.submit "Promote", class: "btn btn-success" %>
 <% end %>
