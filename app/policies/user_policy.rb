@@ -12,4 +12,9 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     user.admin?
   end
+  
+  def promote? 
+    user.admin? or user.supervisor? 
+  end 
+
 end
