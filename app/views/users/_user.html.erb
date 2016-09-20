@@ -1,5 +1,6 @@
 <li>
   <%= link_to user.email, user %>
+  <%= render partial: 'promote_form', locals: { user: user } %>
   <%= render partial: 'roster_form', locals: { user: user } %>
 
   <% if current_user.admin? %>
