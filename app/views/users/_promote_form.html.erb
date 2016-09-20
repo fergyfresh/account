@@ -1,5 +1,5 @@
   <div id="promote_form">
-  <% if current_user.supervisor? %>
+  <% if current_user.supervisor? or current_user.admin? %>
     <%= render partial: 'promote', locals: { user: user } %>
   <% end %>
   </div>
