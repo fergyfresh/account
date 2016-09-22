@@ -13,4 +13,14 @@ class UsersController < ApplicationController
       format.js
     end
   end 
+  
+  def demote
+    @user = User.find(params[:employee_id])
+    @user.supervisor = false
+    @user.save
+    respond_to do |format|
+      format.html { redirect_to action: "index", controller: "users" }
+      format.js
+    end
+  end   
 end
