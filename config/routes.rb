@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :users
   resources :relationships,       only: [:create, :destroy]
   patch  'promote' => 'users#promote'
-  
+  patch  'demote' => 'users#demote'  
+
   devise_scope :user do
     authenticated :user do
       root 'records#index', as: :authenticated_root
