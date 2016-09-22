@@ -2,7 +2,7 @@
   <% if current_user.supervisor? or current_user.admin? %>
     <% if not user.supervisor? %>
       <%= render partial: 'promote', locals: { user: user } %>
-    <% elsif user.admin? %>
+    <% elsif current_user.admin? %>
       <%= render partial: 'demote', locals: { user: user } %>
     <% end %>
   <% end %>
