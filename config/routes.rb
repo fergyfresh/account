@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  post 'promote' => 'users#promote'
+
   devise_for :users
   resources :time_records
   resources :records

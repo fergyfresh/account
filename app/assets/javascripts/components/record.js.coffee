@@ -41,18 +41,18 @@
         'Edit'
 
   renderApprove: ->
-    if true == true
+    if @props.approveable
       React.DOM.a
         className: 'btn btn-default'
         'Approve'
-        
+
   renderDelete: ->
-    if true == true
+    if @props.deleteable
       React.DOM.a
         className: 'btn btn-danger'
         onClick: @handleDelete
         'Delete'
-          
+
   recordRow: ->
     React.DOM.tr null,
       React.DOM.td null, @props.record.date
