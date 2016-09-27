@@ -54,4 +54,4 @@
             React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for record in @state.records
-            React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord, approveable: @props.current_user.supervisor, deleteable: @props.current_user.admin, isOwner: @props.current_user.id = record.owner
+            React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord, approveable: @props.current_user.supervisor, deleteable: @props.current_user.admin, isOwner: @props.current_user.id = record.user_id
