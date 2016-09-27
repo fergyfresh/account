@@ -1,2 +1,2 @@
 <li><%= link_to "Users", users_path %></li>
-<%= react_component 'Records', { data: @records, deleteable: current_user.admin?, approveable: current_user.supervisor? } %>
+<%= react_component 'Records', { data: @records, current_user: current_user } %>
