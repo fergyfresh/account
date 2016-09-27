@@ -47,7 +47,7 @@
         'Approve'
 
   renderDelete: ->
-    if @props.deleteable
+    if @props.deleteable or @props.isOwner
       React.DOM.a
         className: 'btn btn-danger'
         onClick: @handleDelete
