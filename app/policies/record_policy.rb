@@ -2,7 +2,9 @@ class RecordPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.admin?
-        scope.where(user: user.employing) #change to scope.all when supervisor? is created.
+        scope.all
+      elsif user.supervisor?
+        scope.where(user: user.employing)
       else
         scope.where(user: user)
       end
