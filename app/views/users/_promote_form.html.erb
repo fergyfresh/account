@@ -1,10 +1,11 @@
   <div id="promote_form">
-  <% if current_user.supervisor? or current_user.admin? %>
-    <% if not user.supervisor? %>
-      <%= render partial: 'promote', locals: { user: user } %>
-    <% elsif current_user.admin? %>
+  <% if user.supervisor? %>
+    <% if current_user.admin? %>
       <%= render partial: 'demote', locals: { user: user } %>
+    <% end %>
+  <% else %>
+    <% if current_user.supervisor? %>
+      <%= render partial: 'promote', locals: { user: user } %>
     <% end %>
   <% end %>
   </div>
-

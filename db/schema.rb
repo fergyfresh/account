@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160920155517) do
     t.integer  "user_id"
     t.boolean  "isHours"
     t.string   "name"
+    t.boolean  "approved"
   end
 
   add_index "records", ["user_id"], name: "index_records_on_user_id"
