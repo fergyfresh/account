@@ -3,6 +3,8 @@ class RecordPolicy < ApplicationPolicy
     def resolve
       if user.admin?
         scope.all
+      elsif user.supervisor?
+        scope.where(user: user.employing)
       else
         scope.where(user: user)
       end

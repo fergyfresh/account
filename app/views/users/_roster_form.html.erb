@@ -1,0 +1,7 @@
+  <div id="roster_form">
+  <% if current_user.rostered?(user) and current_user.supervisor? %>
+    <%= render partial: 'fire', locals: { user: user } %>
+  <% elsif current_user.supervisor? %>
+    <%= render partial: 'hire', locals: { user: user } %>
+  <% end %>
+  </div>
