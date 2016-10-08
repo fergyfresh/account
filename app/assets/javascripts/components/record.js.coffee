@@ -45,7 +45,7 @@
       dataType: 'JSON'
       data:
         record: data
-      success: =>
+      success: (data) =>
         @setState edit: false
         @props.handleEditRecord @props.record, data
 
@@ -62,7 +62,7 @@
         className: 'btn btn-default'
         onClick: @handleApprove
         'Approve'
-    else
+    else if @props.record.approved
       React.DOM.a
         className: 'btn btn-success disabled'
         'Approved'
