@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :records
   resources :users
   resources :relationships,       only: [:create, :destroy]
+
   patch  'promote' => 'users#promote'
   patch  'demote' => 'users#demote'
 

@@ -22,6 +22,7 @@
       title: ReactDOM.findDOMNode(@refs.title).value
       date: ReactDOM.findDOMNode(@refs.date).value
       amount: ReactDOM.findDOMNode(@refs.amount).value
+      approved: false
     # jQuery doesn't have a $.put shortcut method either
     $.ajax
       method: 'PUT'
@@ -33,21 +34,41 @@
         @setState edit: false
         @props.handleEditRecord @props.record, data
 
+  handleApprove: (e) ->
+    e.preventDefault()
+    data =
+      approved: true
+    # jQuery doesn't have a $.put shortcut method either
+    $.ajax
+      method: 'PUT'
+      url: "/records/#{ @props.record.id }"
+      dataType: 'JSON'
+      data:
+        record: data
+      success: =>
+        @setState edit: false
+        @props.handleEditRecord @props.record, data
+
   renderEdit: ->
-    if true == true
+    if !@props.record.approved
       React.DOM.a
         className: 'btn btn-default'
         onClick: @handleToggle
         'Edit'
 
   renderApprove: ->
-    if @props.approveable
+    if @props.approveable and !@props.record.approved
       React.DOM.a
         className: 'btn btn-default'
+        onClick: @handleApprove
         'Approve'
+    else
+      React.DOM.a
+        className: 'btn btn-success disabled'
+        'Approved'
 
   renderDelete: ->
-    if @props.deleteable or @props.isOwner
+    if @props.deleteable or (@props.isOwner and !@props.record.approved)
       React.DOM.a
         className: 'btn btn-danger'
         onClick: @handleDelete
