@@ -36,7 +36,7 @@
       className: 'records'
       React.DOM.h3
         className: 'title'
-        'Records'
+        'Time and Expenses'
       React.DOM.div
         className: 'row'
         React.createElement AmountBox, type: 'success', amount: @expenses(), text: 'Expenses'
