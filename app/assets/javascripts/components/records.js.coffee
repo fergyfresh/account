@@ -34,7 +34,7 @@
   render: ->
     React.DOM.div
       className: 'records'
-      React.DOM.h3
+      React.DOM.h2
         className: 'title'
         'Time and Expenses'
       React.DOM.div

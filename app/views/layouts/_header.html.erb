@@ -1,0 +1,17 @@
+<ul class="nav nav-pills" role="tablist">
+  <% if user_signed_in? %>
+    <li role="presentation"><%= link_to "Records", records_path %></li>
+    <li role="presentation"><%= link_to "Projects", projects_path %></li>
+    <li role="presentation"><%= link_to "Users", users_path %></li>
+
+
+  <ul class="nav navbar-nav pull-right">
+    <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+    <li><%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  </ul>
+  <% else %>
+  <ul class="navbar-header pull-right">
+    <li><%= link_to "Login", new_user_session_path %></li>
+  </ul>
+  <% end %>
+</ul>

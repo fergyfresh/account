@@ -8,11 +8,12 @@ class User < ActiveRecord::Base
                                   foreign_key: "supervisor_id",
                                   dependent:   :destroy
   has_many :employing, through: :active_relationships, source: :employee
-
+  has_many :projects
+  
   def promote(other_user)
     other_user.update_column(supervisor:true)
   end
-  
+
   def hire(other_user)
     active_relationships.create(employee_id: other_user.id)
   end

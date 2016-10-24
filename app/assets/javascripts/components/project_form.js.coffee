@@ -1,0 +1,56 @@
+@ProjectForm = React.createClass
+  getInitialState: ->
+    name: ''
+    content: ''
+    user_id: ''
+
+  valid: ->
+    @state.name && @state.content && @state.user_id
+
+  handleChange: (e) ->
+    name = e.target.name
+    @setState "#{ name }": e.target.value
+
+  handleSubmit: (e) ->
+    e.preventDefault()
+    $.post '/projects/', { project: @state }, (data) =>
+      @props.handleNewRecord data
+      @setState @getInitialState()
+    , 'JSON'
+
+  render: ->
+    React.DOM.form
+      className: 'form-inline'
+      onSubmit: @handleSubmit
+      React.DOM.div
+        className: 'form-group'
+        React.DOM.input
+          type: 'text'
+          className: 'form-control'
+          placeholder: 'Project Name'
+          name: 'name'
+          value: @state.name
+          onChange: @handleChange
+      React.DOM.div
+        className: 'form-group'
+        React.DOM.input
+          type: 'text'
+          className: 'form-control'
+          placeholder: 'Description'
+          name: 'content'
+          value: @state.content
+          onChange: @handleChange
+      React.DOM.div
+        className: 'form-group'
+        React.DOM.input
+          type: 'integer'
+          className: 'form-control'
+          placeholder: 'user_id'
+          name: 'user_id'
+          value: @state.user_id
+          onChange: @handleChange
+      React.DOM.button
+        type: 'submit'
+        className: 'btn btn-primary'
+        disabled: !@valid()
+        'Create project'

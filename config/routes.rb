@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :time_records
+  resources :projects
   resources :records
   resources :users
   resources :relationships,       only: [:create, :destroy]
