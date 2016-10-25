@@ -40,4 +40,4 @@
             React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for project in @state.projects
-            React.createElement Project, key: project.id, project: project, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord, deleteable: @props.current_user.admin
+            React.createElement Project, key: project.id, project: project, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord, deleteable: @props.current_user.admin, users: @props.users
