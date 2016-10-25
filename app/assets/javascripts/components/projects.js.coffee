@@ -27,7 +27,7 @@
         'Projects'
       React.DOM.div
         className: 'row'
-      React.createElement ProjectForm, handleNewRecord: @addRecord
+      React.createElement ProjectForm, handleNewRecord: @addRecord, users: @props.users
       React.DOM.hr null
       React.DOM.table
         className: 'table table-bordered'
