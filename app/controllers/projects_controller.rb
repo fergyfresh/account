@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
     @projects = policy_scope(Project)
-    @users = User.all.where("supervisor = true")
+    @users = User.all.where("supervisor = ?", true)
   end
 
   def create

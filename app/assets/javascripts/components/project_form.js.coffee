@@ -1,4 +1,5 @@
 @ProjectForm = React.createClass
+
   getInitialState: ->
     name: ''
     content: ''
@@ -42,13 +43,17 @@
           onChange: @handleChange
       React.DOM.div
         className: 'form-group'
-        React.DOM.input
-          type: 'integer'
-          className: 'form-control'
-          placeholder: 'user_id'
+        React.DOM.select {
           name: 'user_id'
           value: @state.user_id
           onChange: @handleChange
+          className: 'form-control'
+        }, Object.keys(@props.users).map(((optlabel) ->
+          React.DOM.option {
+            key: optlabel
+            value: @props.users[optlabel].id },
+            @props.users[optlabel].email
+          ), this)
       React.DOM.button
         type: 'submit'
         className: 'btn btn-primary'

@@ -1,6 +1,14 @@
 @Project = React.createClass
+
+
   getInitialState: ->
     edit: false
+    user_id: ''
+    id2email: {}
+
+  handleChange: (e) ->
+    name = e.target.name
+    @setState "#{ name }": e.target.value
 
   handleToggle: (e) ->
     e.preventDefault()
@@ -28,7 +36,7 @@
       url: "/projects/#{ @props.project.id }"
       dataType: 'JSON'
       data:
-        record: data
+        project: data
       success: (data) =>
         @setState edit: false
         @props.handleEditRecord @props.project, data
@@ -50,13 +58,14 @@
       React.DOM.td null, @props.project.id
       React.DOM.td null, @props.project.name
       React.DOM.td null, @props.project.content
-      React.DOM.td null, @props.project.user_id
+      React.DOM.td null, @state.id2email[@props.project.user_id]
       React.DOM.td null,
         @renderEdit()
         @renderDelete()
 
   recordForm: ->
     React.DOM.tr null,
+      React.DOM.td null, @props.project.id
       React.DOM.td null,
         React.DOM.input
           className: 'form-control'
@@ -70,11 +79,18 @@
           defaultValue: @props.project.content
           ref: 'content'
       React.DOM.td null,
-        React.DOM.input
+        React.DOM.select {
           className: 'form-control'
-          type: 'integer'
           defaultValue: @props.project.user_id
+          onChange: @handleChange
           ref: 'user_id'
+          name: 'user_id'
+        }, Object.keys(@props.users).map(((optlabel) ->
+          React.DOM.option {
+            key: optlabel
+            value: @props.users[optlabel].id },
+            @props.users[optlabel].email
+          ), this)
       React.DOM.td null,
         React.DOM.a
           className: 'btn btn-default'
@@ -86,6 +102,7 @@
           'Cancel'
 
   render: ->
+    @state.id2email[id] = email for { id, email } in @props.users
     if @state.edit
       @recordForm()
     else
