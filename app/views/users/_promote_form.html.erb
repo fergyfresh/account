@@ -4,7 +4,7 @@
       <%= render partial: 'demote', locals: { user: user } %>
     <% end %>
   <% else %>
-    <% if current_user.supervisor? %>
+    <% if current_user.supervisor? or current_user.admin? %>
       <%= render partial: 'promote', locals: { user: user } %>
     <% end %>
   <% end %>
