@@ -37,7 +37,7 @@
             React.DOM.th null, 'Project ID'
             React.DOM.th null, 'Project Name'
             React.DOM.th null, 'Description'
-            React.DOM.th null, 'Supervisor'
+            React.DOM.th null, 'Project Manager'
             React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for project in @state.projects
