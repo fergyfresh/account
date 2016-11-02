@@ -4,7 +4,7 @@ class ProjectPolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        scope.where(user: user.jobs | user.projects)
+        scope.where(user: user)
       end
     end
   end
