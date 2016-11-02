@@ -10,6 +10,6 @@ class CreateRelationships < ActiveRecord::Migration
     add_index :relationships, :employee_id
     add_index :relationships, :supervisor_id
     add_index :relationships, :project_id
-    add_index :relationships, [:employee_id, :supervisor_id, :project_id], unique: true
+    add_index :relationships, [:employee_id, :supervisor_id, :project_id], name: 'index_employee_supervisor_project', unique: true
   end
 end
