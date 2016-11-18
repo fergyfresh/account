@@ -1,6 +1,5 @@
 @Project = React.createClass
 
-
   getInitialState: ->
     edit: false
     user_id: ''
