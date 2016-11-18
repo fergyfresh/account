@@ -74,8 +74,8 @@
       React.DOM.td null, @props.project.content
       React.DOM.td null, @state.id2email[@props.project.user_id]
       React.DOM.td null,
+        @renderEdit()
         @renderManage()
-        @renderEdit()
         @renderDelete()
 
   recordForm: ->
