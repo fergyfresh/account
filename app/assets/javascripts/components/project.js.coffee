@@ -41,7 +41,6 @@
         @props.handleEditRecord @props.project, data
 
   handleManage: (e) ->
-    e.preventDefault()
     # jQuery doesn't have a $.put shortcut method either
     $.ajax
       method: 'GET'
