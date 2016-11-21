@@ -6,4 +6,5 @@
   render: ->
     React.DOM.div
       className: 'org-chart'
+      @props.pm.email
       
