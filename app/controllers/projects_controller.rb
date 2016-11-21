@@ -3,12 +3,13 @@ class ProjectsController < ApplicationController
     @projects = policy_scope(Project)
     @users = User.all.where("supervisor = ?", true)
   end
-  
+
   def show
-    @supervisors = User.all.where("supervisor = ?", true)
-    @users = User.all.where("supervisor = ?", false)
+    @project = Project.find(params[:id])
+    @pm = User.find(@project.user_id)
+    @supervisors = Relationship.all.where("supervisor_id = ?", @project.user_id)
   end
-  
+
   def create
     @project = Project.new(project_params)
     if @project.save

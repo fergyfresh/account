@@ -22,9 +22,8 @@
       dataType: 'JSON'
       success: () =>
         @props.handleDeleteRecord @props.project
-                                                                                      
+
   handleEdit: (e) ->
-    e.preventDefault()
     data =
       name: ReactDOM.findDOMNode(@refs.name).value
       content: ReactDOM.findDOMNode(@refs.content).value
@@ -40,13 +39,6 @@
         @setState edit: false
         @props.handleEditRecord @props.project, data
 
-  handleManage: (e) ->
-    # jQuery doesn't have a $.put shortcut method either
-    $.ajax
-      method: 'GET'
-      url: "/projects/#{ @props.project.id }"
-      dataType: 'JSON'
-        
   renderEdit: ->
     React.DOM.a
       className: 'btn btn-default'
@@ -58,13 +50,13 @@
       className: 'btn btn-danger'
       onClick: @handleDelete
       'Delete'
-      
-  renderManage: ->    
-    React.DOM.a      
-      className: 'btn btn-danger'      
-      onClick: @handleManage
+
+  renderManage: ->   
+    React.DOM.a     
+      className: 'btn btn-danger'     
+      href: "/projects/#{ @props.project.id }"
       'Manage'
-      
+
   recordRow: ->
     React.DOM.tr null,
       React.DOM.td null, @props.project.id

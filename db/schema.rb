@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20161023153118) do
     t.string   "title"
     t.date     "date"
     t.float    "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
-    t.boolean  "isHours"
+    t.boolean  "isHours",    default: false
     t.string   "name"
-    t.boolean  "approved"
+    t.boolean  "approved",   default: false
   end
 
   add_index "records", ["user_id"], name: "index_records_on_user_id"
@@ -40,21 +40,15 @@ ActiveRecord::Schema.define(version: 20161023153118) do
   create_table "relationships", force: :cascade do |t|
     t.integer  "employee_id"
     t.integer  "supervisor_id"
+    t.integer  "project_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  add_index "relationships", ["employee_id", "supervisor_id"], name: "index_relationships_on_employee_id_and_supervisor_id", unique: true
+  add_index "relationships", ["employee_id", "supervisor_id", "project_id"], name: "index_employee_supervisor_project", unique: true
   add_index "relationships", ["employee_id"], name: "index_relationships_on_employee_id"
+  add_index "relationships", ["project_id"], name: "index_relationships_on_project_id"
   add_index "relationships", ["supervisor_id"], name: "index_relationships_on_supervisor_id"
-
-  create_table "time_records", force: :cascade do |t|
-    t.string   "title"
-    t.date     "date"
-    t.float    "hours"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -70,7 +64,6 @@ ActiveRecord::Schema.define(version: 20161023153118) do
     t.boolean  "admin",                  default: false, null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.boolean  "isHours"
     t.boolean  "supervisor",             default: false
   end
 
