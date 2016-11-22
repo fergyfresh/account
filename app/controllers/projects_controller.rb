@@ -7,7 +7,15 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @pm = User.find(@project.user_id)
-    @supervisors = Relationship.all.where("supervisor_id = ?", @project.user_id)
+    @employees = {}
+    @supervisors = Relationship.all.where("supervisor_id = ?", @project.user_id).pluck(:employee_id)
+    @roster = []
+    for supervisor in @supervisors:
+        @roster = 
+        @employees[supervisor] = User.all.where(
+          "id = ?", 
+          Relationship.all.where("supervisor_id = ?", supervisor.id).pluck(:employee_id))
+    end
   end
 
   def create
