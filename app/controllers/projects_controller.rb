@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     @employees = {}
     @supervisors = Relationship.all.where("supervisor_id = ?", @project.user_id).pluck(:employee_id)
     for supervisor in @supervisors
-        @employees[supervisor] = User.all.where("id = ?", Relationship.all.where("supervisor_id = ?", supervisor.id).pluck(:employee_id))
+        @employees[supervisor] = User.all.where("id = ?", Relationship.all.where("supervisor_id = ?", supervisor).pluck(:employee_id))
     end
   end
 
