@@ -24,6 +24,7 @@
         @props.handleDeleteRecord @props.project
 
   handleEdit: (e) ->
+    e.preventDefault()
     data =
       name: ReactDOM.findDOMNode(@refs.name).value
       content: ReactDOM.findDOMNode(@refs.content).value
