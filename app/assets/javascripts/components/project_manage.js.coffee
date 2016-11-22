@@ -9,6 +9,6 @@
       @props.pm.email
       for supervisor in @props.supervisor
         React.DOM.ul supervisor.email
-        for employee in employees[supervisor]:
+        for employee in @props.employees[supervisor]
           React.DOM.li employee.email
 
