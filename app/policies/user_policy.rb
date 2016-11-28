@@ -1,7 +1,7 @@
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.admin?
+      if user.admin? or user.supervisor?
         scope.all
       else
         scope.where(user: user)
