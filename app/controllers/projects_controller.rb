@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
     @supervisor_ids << Relationship.all.where("supervisor_id = ?", @project.user_id).pluck(:supervisor_id)
     @supervisors = []
     @supervisors << User.all.where("id = ?", @supervisor_ids)
+    @employees = {}
     for supervisor in @supervisor_ids
       @employees[supervisor] = User.all.where("id = ?", Relationship.all.where("supervisor_id = ?", supervisor).pluck(:employee_id))
     end
