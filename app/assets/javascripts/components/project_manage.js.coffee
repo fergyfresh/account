@@ -4,11 +4,11 @@
     pm: @props.pm
 
   render: ->
-    React.DOM.h2
-      className: 'title'
-      'Organization Chart.'
     React.DOM.div
       className: 'org-chart'
+      React.DOM.h2
+        className: 'title'
+        'Organization Chart.'
       @props.pm.email
       React.DOM.ul {
         className: 'form-control'
