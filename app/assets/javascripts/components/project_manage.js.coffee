@@ -16,7 +16,7 @@
           @props.supervisors[supervisor].email
           React.DOM.ul {
             className: 'form-control'
-          }, Object.keys(@props.employees[supervisor]).map(((employee) ->
+          }, Object.keys(@props.employees).map(((supervisor, employee) ->
             React.DOM.li {
               key: employee
               value: @props.employees[supervisor][employee].id },
