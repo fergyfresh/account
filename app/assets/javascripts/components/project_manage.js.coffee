@@ -4,6 +4,8 @@
     pm: @props.pm
 
   render: ->
+    React.DOM.h1
+      "Organization Chart."
     React.DOM.div
       className: 'org-chart'
       @props.pm.email
