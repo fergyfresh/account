@@ -10,8 +10,14 @@
       React.DOM.ul {
         className: 'form-control'
       }, Object.keys(@props.supervisors).map(((supervisor) ->
-        React.DOM.li {
+        React.DOM.ul {
           key: supervisor
           value: @props.supervisors[supervisor].id },
           @props.supervisors[supervisor].email
+          Object.keys(@props.employees[supervisor]).map(((employee) ->
+            React.DOM.li {
+            key: employee
+            value: @props.employees[supervisor][employee].id },
+            @props.employees[supervisor][employee].email
+          ), this)      
         ), this)
