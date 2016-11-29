@@ -22,7 +22,7 @@
           }, Object.keys(@props.employees).map(((supervisor, employee) ->
             React.DOM.li {
               key: supervisor
-              value: @props.employees[supervisor][employee].id },
+              value: [@props.employees[supervisor][employee].id, @props.supervisors[supervisor].id] },
               @props.employees[supervisor][employee].email
           ), this)      
       ), this)
