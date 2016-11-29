@@ -7,7 +7,11 @@
     React.DOM.div
       className: 'org-chart'
       @props.pm.email
-      for supervisor in @props.supervisors
-        React.DOM.ul {}, supervisor.email
-        for employee in @props.employees[supervisor]
-          React.DOM.li {}, employee.email
+      React.DOM.ul {
+        className: 'form-control'
+      }, Object.keys(@props.supervisors).map(((supervisor) ->
+        React.DOM.option {
+          key: supervisor
+          value: @props.supervisors[supervisor].id },
+          @props.supervisors[supervisor].email
+        ), this)
