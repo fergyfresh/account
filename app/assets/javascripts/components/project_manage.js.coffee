@@ -10,7 +10,7 @@
       React.DOM.ul {
         className: 'form-control'
       }, Object.keys(@props.supervisors).map(((supervisor) ->
-        React.DOM.option {
+        React.DOM.li {
           key: supervisor
           value: @props.supervisors[supervisor].id },
           @props.supervisors[supervisor].email
