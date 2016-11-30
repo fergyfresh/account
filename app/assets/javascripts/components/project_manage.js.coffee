@@ -19,10 +19,10 @@
           @props.supervisors[supervisor].email
           React.DOM.ul {
             className: 'form-control'
-          }, [Object.keys(@props.employees).map(((supervisor, employee) ->
+          }, Object.keys(@props.employees).map(((supervisor, employee) ->
             React.DOM.li {
               key: employee
               value: @props.employees[supervisor][employee].id },
               @props.employees[supervisor][employee].email
-          ), this) React.DOM.li {}, 'New employee!']
-      ), this) React.DOM.li {}, 'New supervisor!']
+          ), this).push(React.DOM.li {}, 'New employee!')
+      ), this).push(React.DOM.li {}, 'New supervisor!')
