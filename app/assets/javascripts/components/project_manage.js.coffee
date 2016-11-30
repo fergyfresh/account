@@ -24,5 +24,7 @@
               key: employee
               value: @props.employees[supervisor][employee].id },
               @props.employees[supervisor][employee].email
-          ), this)      
+          ), this)  
+            React.DOM.li {
+            }, 'New Record!'
       ), this)
