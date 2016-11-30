@@ -24,7 +24,7 @@
               key: employee
               value: @props.employees[supervisor][employee].id },
               @props.employees[supervisor][employee].email
-          ), this).push(React.DOM.li {}, 'New employee!')
-          React.DOM.li {}, 'New employee!'
-      ), this).push(React.DOM.li {}, 'New supervisor!')
-      React.DOM.li {}, 'New supervisor!'
+          ), this)
+          React.DOM.li {className: 'form-control'}, 'New employee!'
+      ), this)
+      React.DOM.li {className: 'form-control'}, 'New supervisor!'
