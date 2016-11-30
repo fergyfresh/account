@@ -26,5 +26,7 @@
               @props.employees[supervisor][employee].email
           ), this)  
             React.DOM.li {
-            }, 'New Record!'
+            }, 'New supervisor!'
       ), this)
+        React.DOM.li {
+          }, 'New supervisor!'
