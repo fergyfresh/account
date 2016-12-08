@@ -15,8 +15,9 @@ class ProjectsController < ApplicationController
     @dummy2.email = "New Employee"
     @employees = {}
     for supervisor in @supervisor_ids
-      @employees[supervisor] = User.all.where("id = ?", Relationship.all.where("supervisor_id = ?", supervisor).pluck(:employee_id))
-      @employees[supervisor] << @dummy2
+      @temp_employees = User.all.where("id = ?", Relationship.all.where("supervisor_id = ?", supervisor).pluck(:employee_id))
+      @temp_employees << @dummy2
+      @employees[supervisor] = @temp_employees
     end
     @supervisors << @dummy1
   end
