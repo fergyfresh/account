@@ -8,10 +8,15 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @pm = User.find(@project.user_id)
     @supervisor_ids = Relationship.all.where("supervisor_id = ?", @project.user_id).pluck(:employee_id)
+    @dummy = User.new
+    @dummy.email = "New Supervisor"
     @supervisors = User.find(@supervisor_ids)
+    @supervisors << @dummy
+    @dummy.email = "New Employee"
     @employees = {}
     for supervisor in @supervisor_ids
       @employees[supervisor] = User.all.where("id = ?", Relationship.all.where("supervisor_id = ?", supervisor).pluck(:employee_id))
+      @employees[supervisor] << @dummy
     end
   end
 
