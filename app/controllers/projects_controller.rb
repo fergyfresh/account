@@ -8,16 +8,17 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @pm = User.find(@project.user_id)
     @supervisor_ids = Relationship.all.where("supervisor_id = ?", @project.user_id).pluck(:employee_id)
-    @dummy = User.new
-    @dummy.email = "New Supervisor"
+    @dummy1 = User.new
+    @dummy1.email = "New Supervisor"
     @supervisors = User.find(@supervisor_ids)
-    @supervisors << @dummy
-    @dummy.email = "New Employee"
+    @dummy2 = User.new
+    @dummy2.email = "New Employee"
     @employees = {}
     for supervisor in @supervisor_ids
       @employees[supervisor] = User.all.where("id = ?", Relationship.all.where("supervisor_id = ?", supervisor).pluck(:employee_id))
-      @employees[supervisor] << @dummy
+      @employees[supervisor] << @dummy2
     end
+    @supervisors << @dummy1
   end
 
   def create
