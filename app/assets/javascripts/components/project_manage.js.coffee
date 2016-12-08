@@ -3,6 +3,8 @@
   getInitialState: ->
     pm: @props.pm
 
+  prepSupervisors: ->
+    
   render: ->
     React.DOM.div
       className: 'org-chart'
@@ -12,7 +14,7 @@
       @props.pm.email
       React.DOM.ul {
         className: 'form-control'
-      }, 
+      }
       for supervisor in @props.supervisors
         React.DOM.li {
           value: @props.supervisors[supervisor].id },
