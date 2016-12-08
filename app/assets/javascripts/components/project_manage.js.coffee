@@ -25,6 +25,4 @@
               value: @props.employees[supervisor][employee].id },
               @props.employees[supervisor][employee].email
           ), this)
-            React.DOM.li {className: 'form-control'}, 'New employee!'
       ), this)
-        React.DOM.li {className: 'form-control'}, 'New supervisor!'
