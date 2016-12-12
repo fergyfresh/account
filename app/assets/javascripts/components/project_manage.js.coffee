@@ -2,6 +2,24 @@
 
   getInitialState: ->
     pm: @props.pm
+    supervisors: @props.supervisors
+    
+  getDefaultProps: ->
+    supervisors: []
+
+  addSupervisor: (supervisor) ->
+    projects = React.addons.update(@state.supervisors, { $push: [supervisor] })
+    @setState supervisors: supervisors
+
+  deleteSupervisor: (supervisor) ->
+    index = @state.projects.indexOf supervisor
+    supervisors = React.addons.update(@state.supervisors, { $splice: [[index, 1]] })
+    @replaceState supervisors: supervisors
+
+  updateSupervisor: (supervisor, data) ->
+    index = @state.supervisors.indexOf supervisor
+    supervisors = React.addons.update(@state.supervisors, { $splice: [[index, 1, data]] })
+    @replaceState supervisors: supervisors
 
   render: ->
     React.DOM.div
@@ -10,21 +28,5 @@
         className: 'title'
         'Organization Chart.'
       @props.pm.email
-      React.DOM.ul {
-        className: 'form-control'
-      }, Object.keys(@props.supervisors).map(((supervisor) ->
-        React.DOM.li {
-          key: supervisor
-          value: @props.supervisors[supervisor].id },
-          @props.supervisors[supervisor].email
-          React.DOM.ul {
-            className: 'form-control'
-          }, Object.keys(@props.employees).map(((supervisor, employee) ->
-            React.DOM.li {
-              key: employee
-              value: @props.employees[supervisor][employee].id },
-              @props.employees[supervisor][employee].email
-          ), this)
-            React.DOM.li {className: 'form-control'}, 'New employee!'
-      ), this)
-        React.DOM.li {className: 'form-control'}, 'New supervisor!'
+      for supervisor in @state.supervisors
+        React.createElement Team, key: supervisor.id, supervisor: supervisor, handleDeleteSupervisor: @deleteSupervisor, handleEditSupervisor: @updateSupervisor, employees: @props.employees[supervisor]
