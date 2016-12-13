@@ -61,13 +61,13 @@
     React.DOM.a
       className: 'btn btn-default'
       onClick: @handleToggle
-      'Edit'
+      'Reassign Team Lead'
 
   renderDelete: ->
     React.DOM.a
       className: 'btn btn-danger'
       onClick: @handleDelete
-      'Delete'
+      'Fire'
 
   recordRow: ->
     React.DOM.li null,
