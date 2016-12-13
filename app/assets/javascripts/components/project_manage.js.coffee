@@ -34,3 +34,7 @@
           React.createElement Team, key: supervisor.id, supervisor: supervisor, handleDeleteSupervisor: @deleteSupervisor, handleEditSupervisor: @updateSupervisor, employees: @props.employees[supervisor.id], project: @props.project
         React.DOM.li null,
           'New supervisor'
+          React.DOM.a
+            className: 'btn btn-success'
+            onClick: @addSupervisor
+            'Hire'
