@@ -3,7 +3,7 @@
   getInitialState: ->
     pm: @props.pm
     supervisors: @props.supervisors
-    
+
   getDefaultProps: ->
     supervisors: []
 
@@ -27,6 +27,10 @@
       React.DOM.h2
         className: 'title'
         'Organization Chart.'
+      'Project Manager: '
       @props.pm.email
-      for supervisor in @state.supervisors
-        React.createElement Team, key: supervisor.id, supervisor: supervisor, handleDeleteSupervisor: @deleteSupervisor, handleEditSupervisor: @updateSupervisor, employees: @props.employees[supervisor]
+      React.DOM.ul null,
+        for supervisor in @state.supervisors
+          React.createElement Team, key: supervisor.id, supervisor: supervisor, handleDeleteSupervisor: @deleteSupervisor, handleEditSupervisor: @updateSupervisor, employees: @props.employees[supervisor], project: @props.project
+        React.DOM.li null,
+          'New supervisor'
