@@ -8,7 +8,7 @@
     supervisors: []
 
   addSupervisor: (supervisor) ->
-    projects = React.addons.update(@state.supervisors, { $push: [supervisor] })
+    supervisors = React.addons.update(@state.supervisors, { $push: [supervisor] })
     @setState supervisors: supervisors
 
   deleteSupervisor: (supervisor) ->
