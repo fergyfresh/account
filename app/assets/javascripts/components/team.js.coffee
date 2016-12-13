@@ -78,7 +78,8 @@
       React.DOM.ul null,
         for employee in @state.employees
           React.createElement Employee, key: employee.id, employee: employee, handleDeleteEmployee: @deleteEmployee, handleEditEmployee: @updateEmployee
-
+        React.DOM.li null,
+          'New employee'
   recordForm: ->
 
   render: ->
