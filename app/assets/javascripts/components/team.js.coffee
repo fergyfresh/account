@@ -76,7 +76,6 @@
       @renderEdit()
       @renderDelete()
       React.DOM.ul null,
-        'test'
         for employee in @state.employees
           React.createElement Employee, key: employee.id, employee: employee, handleDeleteEmployee: @deleteEmployee, handleEditEmployee: @updateEmployee
 
