@@ -31,6 +31,6 @@
       @props.pm.email
       React.DOM.ul null,
         for supervisor in @state.supervisors
-          React.createElement Team, key: supervisor.id, supervisor: supervisor, handleDeleteSupervisor: @deleteSupervisor, handleEditSupervisor: @updateSupervisor, employees: @props.employees[supervisor], project: @props.project
+          React.createElement Team, key: supervisor.id, supervisor: supervisor, handleDeleteSupervisor: @deleteSupervisor, handleEditSupervisor: @updateSupervisor, employees: @props.employees[supervisor.id], project: @props.project
         React.DOM.li null,
           'New supervisor'
