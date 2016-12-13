@@ -80,6 +80,11 @@
           React.createElement Employee, key: employee.id, employee: employee, handleDeleteEmployee: @deleteEmployee, handleEditEmployee: @updateEmployee
         React.DOM.li null,
           'New employee'
+          React.DOM.a
+            className: 'btn btn-success'
+            onClick: @addEmployee
+            'Hire'
+
   recordForm: ->
 
   render: ->
