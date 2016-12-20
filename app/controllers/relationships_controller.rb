@@ -9,7 +9,7 @@ class RelationshipsController < ApplicationController
   def destroy
     @supervisor = User.find(params[:supervisor_id])
     @employee = User.find(params[:employee_id])
-    @supervisor.fire(@employee, , params[:project_id])
+    @supervisor.fire(@employee, params[:project_id])
     render json: @employee
   end
 end
