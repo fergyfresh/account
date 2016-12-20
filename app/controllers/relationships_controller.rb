@@ -1,7 +1,5 @@
 class RelationshipsController < ApplicationController
   def create
-    @supervisor = User.find(params[:supervisor_id])
-    @employee = User.find(params[:employee_id])
     @relationship = Relationship.new(supervisor_id: params[:supervisor_id], employee_id: params[:employee_id], project_id: params[:project_id])
     if @relationship.save
       render json: @employee
