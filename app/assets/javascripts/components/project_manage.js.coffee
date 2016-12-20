@@ -32,4 +32,4 @@
       React.DOM.ul null,
         for supervisor in @state.supervisors
           React.createElement Team, key: supervisor.id, supervisor: supervisor, handleDeleteSupervisor: @deleteSupervisor, handleEditSupervisor: @updateSupervisor, employees: @props.employees[supervisor.id], project: @props.project
-        React.createElement HireForm, supervisor_id: supervisor.id, project_id: @props.project.id 
+        React.createElement HireForm, supervisor_id: supervisor.id, project_id: @props.project.id, users: @props.users
