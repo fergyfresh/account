@@ -14,7 +14,7 @@
 
   handleSubmit: (e) ->
     e.preventDefault()
-    $.post '/relationships/', { relationship: @state }, (data) =>
+    $.post '/relationships/', @state, (data) =>
       @props.handleNewRecord data
       @setState @getInitialState()
     , 'JSON'
