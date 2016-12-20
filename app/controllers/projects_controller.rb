@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @pm = User.find(@project.user_id)
+    @users = User.all
     @supervisor_ids = Relationship.all.where("supervisor_id = ?", @project.user_id).pluck(:employee_id)
     @supervisors = User.find(@supervisor_ids)
     @employees = {}
