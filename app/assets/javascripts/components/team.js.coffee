@@ -80,7 +80,7 @@
           React.createElement Employee, key: employee.id, employee: employee, handleDeleteEmployee: @deleteEmployee, handleEditEmployee: @updateEmployee, project_id: @props.project.id, supervisor_id: @props.supervisor.id
         React.DOM.li null,
           'New employee: '
-          React.createElement HireForm, supervisor_id: @state.supervisor.id, project_id: @props.project.id, users: @props.users, handleNewRecord: @addEmployee
+          React.createElement HireForm, supervisor_id: @props.supervisor.id, project_id: @props.project.id, users: @props.users, handleNewRecord: @addEmployee
 
 
   recordForm: ->

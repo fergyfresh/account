@@ -1,9 +1,7 @@
 @Employee = React.createClass
 
   getInitialState: ->
-    project_id: @props.project_id
-    supervisor_id: @props.supervisor_id
-    employee_id: @props.employee.id
+    edit: false
 
   handleChange: (e) ->
     name = e.target.name
@@ -18,8 +16,8 @@
     # yeah... jQuery doesn't have a $.delete shortcut method
     $.ajax
       method: 'DELETE'
-      url: "/relationships/#{ @state.project_id}"
-      data: @state
+      url: "/relationships/#{ @props.project_id}"
+      data: { project_id: @props.project_id, supervisor_id: @props.supervisor_id, employee_id: @props.employee.id }
       dataType: 'JSON'
       success: () =>
         @props.handleDeleteEmployee @props.employee
