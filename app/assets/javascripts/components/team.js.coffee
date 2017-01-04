@@ -73,7 +73,6 @@
     React.DOM.li null,
       'Supervisor: '
       @props.supervisor.email
-      @renderEdit()
       @renderDelete()
       React.DOM.ul null,
         for employee in @state.employees

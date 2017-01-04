@@ -55,7 +55,6 @@
     React.DOM.li null,
       'Employee: '
       @props.employee.email
-      @renderEdit()
       @renderDelete()
 
   recordForm: ->
