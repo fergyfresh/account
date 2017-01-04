@@ -12,7 +12,7 @@
     @setState supervisors: supervisors
 
   deleteSupervisor: (supervisor) ->
-    index = @state.projects.indexOf supervisor
+    index = @props.supervisors.indexOf supervisor
     supervisors = React.addons.update(@state.supervisors, { $splice: [[index, 1]] })
     @replaceState supervisors: supervisors
 

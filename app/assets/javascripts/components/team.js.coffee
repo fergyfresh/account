@@ -2,7 +2,6 @@
 
   getInitialState: ->
     edit: false
-    supervisor: @props.supervisor
     employees: @props.employees
 
   getDefaultProps: ->
@@ -35,10 +34,11 @@
     # yeah... jQuery doesn't have a $.delete shortcut method
     $.ajax
       method: 'DELETE'
-      url: "/relationships/#{ @props.supervisor.id }"
+      url: "/relationships/#{ @props.project_id}"
+      data: { project_id: @props.project.id, supervisor_id: @props.project.user_id, employee_id: @props.supervisor.id }
       dataType: 'JSON'
       success: () =>
-        @props.handleDeleteRecord @props.supervisor
+        @props.handleDeleteSupervisor @props.supervisor
 
   handleEdit: (e) ->
     e.preventDefault()
