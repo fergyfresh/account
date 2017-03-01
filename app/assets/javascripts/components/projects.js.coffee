@@ -29,8 +29,8 @@
         className: 'row'
       if @props.current_user.admin  
         React.createElement ProjectForm, handleNewRecord: @addRecord, users: @props.users
-      React.DOM.hr null
       React.DOM.div
+        React.DOM.hr null
         React.DOM.table
           className: 'table table-bordered'
           React.DOM.thead null,
