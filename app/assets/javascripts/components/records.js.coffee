@@ -43,7 +43,6 @@
         React.createElement HourBox, type: 'info', amount: @hours(), text: 'Hours'
       React.createElement RecordForm, handleNewRecord: @addRecord
       React.DOM.div
-        className: 'table-responsive'
         React.DOM.hr null
         React.DOM.table
           className: 'table table-bordered'
