@@ -31,7 +31,6 @@
         React.createElement ProjectForm, handleNewRecord: @addRecord, users: @props.users
       React.DOM.hr null
       React.DOM.div
-        className: 'table-responsive'
         React.DOM.table
           className: 'table table-bordered'
           React.DOM.thead null,
