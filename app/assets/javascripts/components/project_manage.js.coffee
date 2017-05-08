@@ -21,6 +21,8 @@
     supervisors = React.addons.update(@state.supervisors, { $splice: [[index, 1, data]] })
     @replaceState supervisors: supervisors
 
+  prepSupervisors: ->
+    
   render: ->
     React.DOM.div
       className: 'org-chart'

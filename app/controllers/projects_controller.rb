@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
       @relationships = Relationship.all.where("supervisor_id = ?", supervisor).pluck(:employee_id)
       @employees[supervisor] = User.where({id: @relationships})
     end
+    @supervisors << @dummy1
   end
 
   def create
