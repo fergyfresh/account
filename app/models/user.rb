@@ -18,12 +18,12 @@ class User < ActiveRecord::Base
     other_user.update_column(supervisor:true)
   end
 
-  def hire(other_user, project)
-    active_relationships.create(employee_id: other_user.id, project_id: project.id)
+  def hire(other_user, project_id)
+    active_relationships.create(employee_id: other_user.id, project_id: project_id)
   end
 
   def fire(other_user, project)
-    active_relationships.find_by(employee_id: other_user.id, project_id: project.id).destroy
+    active_relationships.find_by(employee_id: other_user.id, project_id: project_id).destroy
   end
 
   def rostered?(other_user)

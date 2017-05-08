@@ -29,16 +29,17 @@
         className: 'row'
       if @props.current_user.admin  
         React.createElement ProjectForm, handleNewRecord: @addRecord, users: @props.users
-      React.DOM.hr null
-      React.DOM.table
-        className: 'table table-bordered'
-        React.DOM.thead null,
-          React.DOM.tr null,
-            React.DOM.th null, 'Project ID'
-            React.DOM.th null, 'Project Name'
-            React.DOM.th null, 'Description'
-            React.DOM.th null, 'Project Manager'
-            React.DOM.th null, 'Actions'
-        React.DOM.tbody null,
-          for project in @state.projects
-            React.createElement Project, key: project.id, project: project, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord, deleteable: @props.current_user.admin, users: @props.users
+      React.DOM.div
+        React.DOM.hr null
+        React.DOM.table
+          className: 'table table-bordered'
+          React.DOM.thead null,
+            React.DOM.tr null,
+              React.DOM.th null, 'Project ID'
+              React.DOM.th null, 'Project Name'
+              React.DOM.th null, 'Description'
+              React.DOM.th null, 'Project Manager'
+              React.DOM.th null, 'Actions'
+          React.DOM.tbody null,
+            for project in @state.projects
+              React.createElement Project, key: project.id, project: project, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord, deleteable: @props.current_user.admin, users: @props.users

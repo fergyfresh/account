@@ -7,17 +7,14 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @pm = User.find(@project.user_id)
+    @users = User.all
     @supervisor_ids = Relationship.all.where("supervisor_id = ?", @project.user_id).pluck(:employee_id)
-    @dummy1 = User.new
-    @dummy1.email = "New Supervisor"
-    @supervisors = User.find(@supervisor_ids)
-    @dummy2 = User.new
-    @dummy2.email = "New Employee"
+    @supervisors = User.where({id: @supervisor_ids})
     @employees = {}
+    @relationships = []
     for supervisor in @supervisor_ids
-      @temp_employees = User.all.where("id = ?", Relationship.all.where("supervisor_id = ?", supervisor).pluck(:employee_id))
-      @temp_employees << @dummy2
-      @employees[supervisor] = @temp_employees
+      @relationships = Relationship.all.where("supervisor_id = ?", supervisor).pluck(:employee_id)
+      @employees[supervisor] = User.where({id: @relationships})
     end
     @supervisors << @dummy1
   end

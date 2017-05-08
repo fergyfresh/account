@@ -42,16 +42,17 @@
         React.createElement AmountBox, type: 'success', amount: @expenses(), text: 'Expenses'
         React.createElement HourBox, type: 'info', amount: @hours(), text: 'Hours'
       React.createElement RecordForm, handleNewRecord: @addRecord
-      React.DOM.hr null
-      React.DOM.table
-        className: 'table table-bordered'
-        React.DOM.thead null,
-          React.DOM.tr null,
-            React.DOM.th null, 'Date'
-            React.DOM.th null, 'Title'
-            React.DOM.th null, 'Amount'
-            React.DOM.th null, 'Employee'
-            React.DOM.th null, 'Actions'
-        React.DOM.tbody null,
-          for record in @state.records
-            React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord, approveable: @props.current_user.supervisor, approved: record.approved, deleteable: @props.current_user.admin, isOwner: @props.current_user.id = record.user_id
+      React.DOM.div
+        React.DOM.hr null
+        React.DOM.table
+          className: 'table table-bordered'
+          React.DOM.thead null,
+            React.DOM.tr null,
+              React.DOM.th null, 'Date'
+              React.DOM.th null, 'Title'
+              React.DOM.th null, 'Amount'
+              React.DOM.th null, 'Employee'
+              React.DOM.th null, 'Actions'
+          React.DOM.tbody null,
+            for record in @state.records
+              React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord, approveable: @props.current_user.supervisor, approved: record.approved, deleteable: @props.current_user.admin, isOwner: @props.current_user.id = record.user_id
