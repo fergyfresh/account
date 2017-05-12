@@ -3,4 +3,5 @@ class Project < ActiveRecord::Base
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validates :name, presence: true
+  validates :contract, presence: true
 end

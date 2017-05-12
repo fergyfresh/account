@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161023153118) do
+ActiveRecord::Schema.define(version: 20170512013005) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -19,9 +18,9 @@ ActiveRecord::Schema.define(version: 20161023153118) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "contract"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
-
-  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "records", force: :cascade do |t|
     t.string   "title"
@@ -33,9 +32,9 @@ ActiveRecord::Schema.define(version: 20161023153118) do
     t.boolean  "isHours",    default: false
     t.string   "name"
     t.boolean  "approved",   default: false
+    t.integer  "project_id"
+    t.index ["user_id"], name: "index_records_on_user_id"
   end
-
-  add_index "records", ["user_id"], name: "index_records_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "employee_id"
@@ -43,12 +42,11 @@ ActiveRecord::Schema.define(version: 20161023153118) do
     t.integer  "project_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["employee_id", "supervisor_id", "project_id"], name: "index_employee_supervisor_project", unique: true
+    t.index ["employee_id"], name: "index_relationships_on_employee_id"
+    t.index ["project_id"], name: "index_relationships_on_project_id"
+    t.index ["supervisor_id"], name: "index_relationships_on_supervisor_id"
   end
-
-  add_index "relationships", ["employee_id", "supervisor_id", "project_id"], name: "index_employee_supervisor_project", unique: true
-  add_index "relationships", ["employee_id"], name: "index_relationships_on_employee_id"
-  add_index "relationships", ["project_id"], name: "index_relationships_on_project_id"
-  add_index "relationships", ["supervisor_id"], name: "index_relationships_on_supervisor_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -65,9 +63,8 @@ ActiveRecord::Schema.define(version: 20161023153118) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "supervisor",             default: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

@@ -3,7 +3,7 @@
   getInitialState: ->
     name: ''
     content: ''
-    user_id: ''
+    user_id: @props.users[0].id
 
   valid: ->
     @state.name && @state.content && @state.user_id
@@ -23,6 +23,15 @@
     React.DOM.form
       className: 'form-inline'
       onSubmit: @handleSubmit
+      React.DOM.div
+        className: 'form-group'
+        React.DOM.input
+          type: 'text'
+          className: 'form-control'
+          placeholder: 'Contract Number'
+          name: 'contract'
+          value: @state.contract
+          onChange: @handleChange
       React.DOM.div
         className: 'form-group'
         React.DOM.input

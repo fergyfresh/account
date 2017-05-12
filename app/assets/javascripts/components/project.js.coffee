@@ -60,7 +60,7 @@
 
   recordRow: ->
     React.DOM.tr null,
-      React.DOM.td null, @props.project.id
+      React.DOM.td null, @props.project.contract
       React.DOM.td null, @props.project.name
       React.DOM.td null, @props.project.content
       React.DOM.td null, @state.id2email[@props.project.user_id]
@@ -71,7 +71,12 @@
 
   recordForm: ->
     React.DOM.tr null,
-      React.DOM.td null, @props.project.id
+      React.DOM.td null,
+        React.DOM.input
+          className: 'form-control'
+          type: 'text'
+          defaultValue: @props.project.contract
+          ref: 'contract'
       React.DOM.td null,
         React.DOM.input
           className: 'form-control'

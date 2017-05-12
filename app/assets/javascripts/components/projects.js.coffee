@@ -35,7 +35,7 @@
           className: 'table table-bordered'
           React.DOM.thead null,
             React.DOM.tr null,
-              React.DOM.th null, 'Project ID'
+              React.DOM.th null, 'Contract Number'
               React.DOM.th null, 'Project Name'
               React.DOM.th null, 'Description'
               React.DOM.th null, 'Project Manager'
