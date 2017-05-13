@@ -1,6 +1,7 @@
 @Record = React.createClass
   getInitialState: ->
     edit: false
+    id2contract: {}
 
   handleToggle: (e) ->
     e.preventDefault()
@@ -77,6 +78,7 @@
   recordRow: ->
     React.DOM.tr null,
       React.DOM.td null, @props.record.date
+      React.DOM.td null, @state.id2contract[@props.record.project_id]
       React.DOM.td null, @props.record.title
       React.DOM.td null, totalFormat(@props.record.amount, @props.record.isHours)
       React.DOM.td null, @props.record.name
@@ -93,6 +95,19 @@
           type: 'date'
           defaultValue: @props.record.date
           ref: 'date'
+      React.DOM.td null,
+        React.DOM.select {
+          className: 'form-control'
+          defaultValue: @props.record.project_id
+          onChange: @handleChange
+          ref: 'user_id'
+          name: 'user_id'
+        }, Object.keys(@props.projects).map(((optlabel) ->
+          React.DOM.option {
+            key: optlabel
+            value: @props.projects[optlabel].id },
+            @props.projects[optlabel].contract
+          ), this)      
       React.DOM.td null,
         React.DOM.input
           className: 'form-control'
@@ -117,6 +132,7 @@
           'Cancel'
 
   render: ->
+    @state.id2contract[id] = contract for {id, contract} in @props.projects
     if @state.edit
       @recordForm()
     else

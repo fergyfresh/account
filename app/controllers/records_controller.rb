@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
   def index
     @records = policy_scope(Record)
+    @projects = policy_scope(Project)
   end
 
   def create
@@ -32,6 +33,6 @@ class RecordsController < ApplicationController
   private
 
     def record_params
-      params.require(:record).permit(:title, :amount, :date, :approved, :isHours)
+      params.require(:record).permit(:title, :amount, :date, :approved, :isHours, :project_id)
     end
 end

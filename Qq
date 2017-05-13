@@ -7,7 +7,7 @@
     project_id: ''
 
   valid: ->
-    @state.title && @state.date && @state.amount && @state.isHours && @state.project_id
+    @state.title && @state.date && @state.amount && @state.isHours
 
   handleChange: (e) ->
     name = e.target.name
@@ -33,18 +33,6 @@
           name: 'date'
           value: @state.date
           onChange: @handleChange
-        React.DOM.select {
-          className: 'form-control'
-          defaultValue: ''
-          onChange: @handleChange
-          ref: 'project_id'
-          name: 'project_id'
-        }, Object.keys(@props.projects).map(((optlabel) ->
-          React.DOM.option {
-            key: optlabel
-            value: @props.projects[optlabel].id },
-            @props.projects[optlabel].contract
-          ), this)
       React.DOM.div
         className: 'form-group'
         React.DOM.input

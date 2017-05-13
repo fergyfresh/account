@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
                                    foreign_key: "employee_id",
                                    dependent:   :destroy
   has_many :employing, through: :active_relationships, source: :employee
-  has_many :jobs, through: :active_relationships, source: :project
+  has_many :jobs, through: :passive_relationships, source: :project
   has_many :projects
   
   def promote(other_user)
