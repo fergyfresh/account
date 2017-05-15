@@ -2,9 +2,6 @@ class RecordsController < ApplicationController
   def index
     @records = policy_scope(Record)
     @projects = policy_scope(Project)
-    @project = Project.new
-    @project.contract = "Pick Contract Number"
-    @projects.insert(0, @project)
   end
 
   def create
