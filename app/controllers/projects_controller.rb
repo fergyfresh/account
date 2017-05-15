@@ -8,12 +8,12 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @pm = User.find(@project.user_id)
     @users = User.all
-    @supervisor_ids = Relationship.all.where("supervisor_id = ?", @project.user_id).pluck(:employee_id)
+    @supervisor_ids = Relationship.all.where("supervisor_id = ? and project_id = ?", @project.user_id, @project.id).pluck(:employee_id)
     @supervisors = User.where({id: @supervisor_ids})
     @employees = {}
     @relationships = []
     for supervisor in @supervisor_ids
-      @relationships = Relationship.all.where("supervisor_id = ?", supervisor).pluck(:employee_id)
+      @relationships = Relationship.all.where("supervisor_id = ? and project_id = ?", supervisor, @project.id).pluck(:employee_id)
       @employees[supervisor] = User.where({id: @relationships})
     end
   end
