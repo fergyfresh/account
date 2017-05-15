@@ -1,8 +1,9 @@
 class RecordsController < ApplicationController
   def index
     @records = policy_scope(Record)
-    @projects << {"id":"", "contract":"Select Contract Number"}
-    @projects << policy_scope(Project)
+    @projects = policy_scope(Project)
+    @project = Project.new(contract: "Pick Contract Number")
+    @projects.insert(0, @project)
   end
 
   def create
