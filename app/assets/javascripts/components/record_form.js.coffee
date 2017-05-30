@@ -33,23 +33,21 @@
           name: 'date'
           value: @state.date
           onChange: @handleChange
-        React.DOM.select {
+        React.DOM.select
           className: 'form-control'
           selected: 'Select a contract'
           defaultValue: 'Select a contract'
           onChange: @handleChange
           ref: 'project_id'
           name: 'project_id'
-        },
-          React.DOM.option {
+          React.DOM.option
             value: ''
-          }, 'Select contract',
-          Object.keys(@props.projects).map(((optlabel) ->
-            React.DOM.option {
-              key: optlabel
-              value: @props.projects[optlabel].id },
-              @props.projects[optlabel].contract
-            ), this)
+            'Select contract',
+            for project in @props.projects
+              React.DOM.option
+              key: project.id
+              value: project.id
+              project.contract
       React.DOM.div
         className: 'form-group'
         React.DOM.input
