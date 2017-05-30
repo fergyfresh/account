@@ -40,16 +40,16 @@
           onChange: @handleChange
           ref: 'project_id'
           name: 'project_id'
-        }, {
+        },
         React.DOM.option {
           value: ''
         }, 'Select contract'
-        Object.keys(@props.projects).map(((optlabel) ->
-          React.DOM.option {
-            key: optlabel
-            value: @props.projects[optlabel].id },
-            @props.projects[optlabel].contract
-          ), this)}
+          Object.keys(@props.projects).map(((optlabel) ->
+            React.DOM.option {
+              key: optlabel
+              value: @props.projects[optlabel].id },
+              @props.projects[optlabel].contract
+            ), this)
       React.DOM.div
         className: 'form-group'
         React.DOM.input
