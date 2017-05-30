@@ -40,7 +40,11 @@
           onChange: @handleChange
           ref: 'project_id'
           name: 'project_id'
-        }, Object.keys(@props.projects).map(((optlabel) ->
+        },
+        React.DOM.option {
+          value: ''
+        }, 'Select contract'
+        Object.keys(@props.projects).map(((optlabel) ->
           React.DOM.option {
             key: optlabel
             value: @props.projects[optlabel].id },
