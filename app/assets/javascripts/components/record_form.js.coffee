@@ -43,8 +43,8 @@
           React.DOM.option
             value: ''
             'Select contract',
-            for project in @props.projects
-              React.DOM.option
+          for project in @props.projects
+            React.DOM.option
               key: project.id
               value: project.id
               project.contract
