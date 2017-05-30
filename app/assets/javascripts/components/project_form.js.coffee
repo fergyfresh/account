@@ -52,17 +52,19 @@
           onChange: @handleChange
       React.DOM.div
         className: 'form-group'
-        React.DOM.select {
+        React.DOM.select
           name: 'user_id'
           value: @state.user_id
           onChange: @handleChange
           className: 'form-control'
-        }, Object.keys(@props.users).map(((optlabel) ->
-          React.DOM.option {
-            key: optlabel
-            value: @props.users[optlabel].id },
-            @props.users[optlabel].email
-          ), this)
+          React.DOM.option
+            value: ''
+            'Select Project Manager'
+          for user in @props.users
+            React.DOM.option
+              key: optlabel
+              value: user.id
+              user.email
       React.DOM.button
         type: 'submit'
         className: 'btn btn-primary'
