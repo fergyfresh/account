@@ -44,7 +44,7 @@
             key: optlabel
             value: @props.projects[optlabel].id },
             @props.projects[optlabel].contract
-          ), this).prepend(React.DOM.option { value: ""}, "Select a contract")
+          ), this).unshift(React.DOM.option { value: ""}, "Select a contract")
       React.DOM.div
         className: 'form-group'
         React.DOM.input
