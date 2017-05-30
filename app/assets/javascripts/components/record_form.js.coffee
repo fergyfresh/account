@@ -41,9 +41,9 @@
           ref: 'project_id'
           name: 'project_id'
         },
-        React.DOM.option {
-          value: ''
-        }, 'Select contract'
+          React.DOM.option {
+            value: ''
+          }, 'Select contract',
           Object.keys(@props.projects).map(((optlabel) ->
             React.DOM.option {
               key: optlabel
