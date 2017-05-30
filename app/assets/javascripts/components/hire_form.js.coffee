@@ -3,10 +3,10 @@
   getInitialState: ->
     project_id: @props.project_id
     supervisor_id: @props.supervisor_id 
-    employee_id: 'Select new hire.'
+    employee_id: ''
 
   valid: ->
-    @state.project_id && @state.supervisor_id && @state.employee_id != 'Select new hire.'
+    @state.project_id && @state.supervisor_id && @state.employee_id
 
   handleChange: (e) ->
     name = e.target.name
@@ -25,17 +25,19 @@
       onSubmit: @handleSubmit
       React.DOM.div
         className: 'form-group'
-        React.DOM.select {
+        React.DOM.select
           name: 'employee_id'
           value: @state.employee_id
           onChange: @handleChange
           className: 'form-control'
-        }, Object.keys(@props.users).map(((optlabel) ->
-          React.DOM.option {
-            key: optlabel
-            value: @props.users[optlabel].id },
-            @props.users[optlabel].email
-          ), this)
+          React.DOM.option
+            value: ''
+            'Select new hire'
+          for user in @props.users 
+            React.DOM.option
+              key: user.id
+              value: user.id
+              user.email
       React.DOM.button
         type: 'submit'
         className: 'btn btn-success'
