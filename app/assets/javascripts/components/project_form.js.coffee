@@ -3,7 +3,7 @@
   getInitialState: ->
     name: ''
     content: ''
-    user_id: @props.users[0].id
+    user_id: ''
 
   valid: ->
     @state.name && @state.content && @state.user_id
@@ -62,7 +62,7 @@
             'Select Project Manager'
           for user in @props.users
             React.DOM.option
-              key: optlabel
+              key: user.id
               value: user.id
               user.email
       React.DOM.button
