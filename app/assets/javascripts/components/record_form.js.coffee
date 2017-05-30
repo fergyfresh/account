@@ -35,7 +35,7 @@
           onChange: @handleChange
         React.DOM.select {
           className: 'form-control'
-          defaultValue: ''
+          defaultValue: 'Select a contract'
           onChange: @handleChange
           ref: 'project_id'
           name: 'project_id'
@@ -44,7 +44,7 @@
             key: optlabel
             value: @props.projects[optlabel].id },
             @props.projects[optlabel].contract
-          ), this).unshift(React.DOM.option { value: ""}, "Select a contract")
+          ), this)
       React.DOM.div
         className: 'form-group'
         React.DOM.input
