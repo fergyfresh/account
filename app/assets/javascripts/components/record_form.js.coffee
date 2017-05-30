@@ -35,7 +35,8 @@
           onChange: @handleChange
         React.DOM.select {
           className: 'form-control'
-          defaultValue: 'Select a contract'
+          selected: 'Select a contract'
+          defaultValue: 'Select a contract'
           onChange: @handleChange
           ref: 'project_id'
           name: 'project_id'
